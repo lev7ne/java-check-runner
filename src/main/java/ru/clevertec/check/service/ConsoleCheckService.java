@@ -19,62 +19,47 @@ import java.util.List;
 
 
 public class ConsoleCheckService implements CheckService {
-    private static final Path PRODUCTS_PATH = Path.of("./src/main/resources/products.csv");
     private static final Path DISCOUNT_CARDS_PATH = Path.of("./src/main/resources/discountCards.csv");
 
     @Override
     public void createCheck(String[] args) {
-        // Готовим пустые переменные, перед тем как начать читать информацию из аргументов
-        String exception = "";
-        var context = new ArgsContext();
+        String exception = null;
+        ArgsContext context;
         List<PaySlip> paySlips = new ArrayList<>();
-        var discountCard = new DiscountCard();
+        DiscountCard discountCard = new DiscountCard(0);
+        String saveToFile = null;
 
         try {
-            // Пытаемся спарсить аргументы
             context = Parser.parseArgs(args);
+            saveToFile = context.getSaveToFile();
 
-            var productCSV = new ProductCSV(PRODUCTS_PATH);
-            List<Product> products = new ArrayList<>();
+            List<Product> products;
 
-            // Если не упали в блок catch, значит можно пытаться достать данные из таблиц
-            try {
-                products = productCSV.findByIds(context.getPurchases());
-            } catch (IOException e) {
-                // Пишем лог в консоль, если есть проблемы с исходным файлом product.csv
-                exception = e.getMessage();
-                Writer.writeToCsv(paySlips, discountCard, exception);
-            }
+            var productCSV = new ProductCSV(Path.of(context.getPathToFile()));
+            products = productCSV.findByIds(context.getPurchases());
 
-            if (context.getDiscountCard() != null) {
+            if (context.getDiscountCardNumber() != null) {
                 var discountCSV = new DiscountCardCSV(DISCOUNT_CARDS_PATH);
-                try {
-                    discountCard = discountCSV.findByNumber(context.getDiscountCard());
-                } catch (IOException e) {
-                    // Пишем лог в консоль, если есть проблемы с исходным файлом discountCards.csv
-                    exception = e.getMessage();
-                    Writer.writeToCsv(paySlips, discountCard, exception);
-                }
-            } else {
-                // Ставим флаг для дисконтной карты, если не передана в аргументах и не нужно писать инфо в чек
-                discountCard.setId(0);
+                discountCard = discountCSV.findByNumber(context.getDiscountCardNumber());
             }
 
-            try {
-                // Основной подсчет делаем в утилитарном сервисе
-                paySlips = Calculator.purchaseCalculate(context.getPurchases(), products, discountCard, context.getBalanceDebitCard());
-            } catch (NotEnoughMoneyException e) {
-                // Если ловим исключение, готовим инфо для записи
-                exception = e.getMessage();
-            }
+            paySlips = Calculator.purchaseCalculate(
+                    context.getPurchases(),
+                    products,
+                    discountCard,
+                    context.getBalanceDebitCard()
+            );
 
-        } catch (BadRequestException e) {
-            // Пишем лог в консоль, если есть проблемы с исходным файлом discountCards.csv
-            System.out.printf("Ошибка чтения args[]: %s%n", e.getMessage());
+        } catch (BadRequestException | IOException e) {
+            exception = e.getMessage();
+            if (e instanceof BadRequestException) {
+                saveToFile = ((BadRequestException) e).getDetails();
+            }
+        } catch (NotEnoughMoneyException e) {
             exception = e.getMessage();
         }
 
-        Writer.writeToCsv(paySlips, discountCard, exception);
+        Writer.writeToCsv(paySlips, discountCard, exception, saveToFile);
     }
 
 }

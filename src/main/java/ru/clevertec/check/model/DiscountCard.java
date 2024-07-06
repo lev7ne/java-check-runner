@@ -5,8 +5,8 @@ public class DiscountCard {
     private int numberDiscount;
     private int amount;
 
-    public DiscountCard() {
-
+    public DiscountCard(int id) {
+        this.id = id;
     }
 
     public int getId() {

@@ -20,11 +20,15 @@ public class Writer {
      * @param discountCard - дисконтная карта
      * @param exception    - сообщение об ошибке, может прийти пустым
      */
-    public static void writeToCsv(List<PaySlip> paySlips, DiscountCard discountCard, String exception) {
+    public static void writeToCsv(List<PaySlip> paySlips, DiscountCard discountCard, String exception, String saveToFile) {
         String filePath = "result.csv";
+        if (saveToFile != null) {
+            filePath = saveToFile;
+        }
+
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(filePath))) {
             // Если при сборе данных возникла ошибка, пишем
-            if (!exception.isEmpty()) {
+            if (exception != null) {
                 writer.write("ERROR\n");
                 writer.write(exception + "\n");
                 return;

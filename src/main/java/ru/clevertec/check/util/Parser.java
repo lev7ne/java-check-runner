@@ -25,8 +25,12 @@ public class Parser {
         Map<Integer, Integer> purchases = new HashMap<>();
         Integer discountCard = null;
         Double balanceDebitCard = null;
+        String pathToFile = null;
+        String saveToFile = null;
+
 
         for (String arg : args) {
+
             if (arg.contains("=")) {
                 String[] parts = arg.split("=");
                 String key = parts[0];
@@ -49,10 +53,19 @@ public class Parser {
                             throw new BadRequestException("BAD REQUEST");
                         }
                         break;
+                    case "pathToFile":
+                        // всегда должен быть
+                        pathToFile = value;
+                        break;
+                    case "saveToFile":
+                        // необязательный
+                        saveToFile = value;
+                        break;
                     default:
                         System.out.println("Передан неизвестный параметр");
                         throw new BadRequestException("BAD REQUEST");
                 }
+
             } else if (arg.contains("-")) {
                 String[] parts = arg.split("-", 2);
                 try {
@@ -64,10 +77,16 @@ public class Parser {
                     System.out.println("Некорректный формат id-quantity, ожидаются целые числа");
                     throw new BadRequestException("BAD REQUEST");
                 }
+
             } else {
                 System.out.println("Передан неизвестный параметр");
                 throw new BadRequestException("BAD REQUEST");
             }
+        }
+
+        if (pathToFile == null) {
+            System.out.println("pathToFile не передан");
+            throw new BadRequestException("BAD REQUEST", saveToFile);
         }
 
         if (purchases.isEmpty()) {
@@ -80,7 +99,7 @@ public class Parser {
             throw new BadRequestException("BAD REQUEST");
         }
 
-        return new ArgsContext(purchases, discountCard, balanceDebitCard);
+        return new ArgsContext(purchases, discountCard, balanceDebitCard, pathToFile, saveToFile);
     }
 
 }

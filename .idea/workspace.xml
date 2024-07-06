@@ -4,32 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ecbb724f-7c7a-4747-af50-7d03d5d300e9" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/java-check-runner.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ru/clevertec/check/CheckRunner.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ru/clevertec/check/csv/DiscountCardCSV.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ru/clevertec/check/csv/ProductCSV.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ru/clevertec/check/dto/ArgsContext.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ru/clevertec/check/dto/PaySlip.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ru/clevertec/check/exception/BadRequestException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ru/clevertec/check/exception/NotEnoughMoneyException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ru/clevertec/check/model/DiscountCard.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ru/clevertec/check/model/Product.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ru/clevertec/check/service/CheckService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ru/clevertec/check/service/ConsoleCheckService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ru/clevertec/check/service/ServiceFactory.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ru/clevertec/check/util/Calculator.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ru/clevertec/check/util/Parser.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ru/clevertec/check/util/Writer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/discountCards.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/products.csv" afterDir="false" />
+    <list default="true" id="ecbb724f-7c7a-4747-af50-7d03d5d300e9" name="Changes" comment="выполнены требования п.1 тз&#10;-структура классов&#10;-основной функционал">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/clevertec/check/csv/ProductCSV.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/clevertec/check/csv/ProductCSV.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/clevertec/check/dto/ArgsContext.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/clevertec/check/dto/ArgsContext.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/clevertec/check/exception/BadRequestException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/clevertec/check/exception/BadRequestException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/clevertec/check/model/DiscountCard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/clevertec/check/model/DiscountCard.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/clevertec/check/service/ConsoleCheckService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/clevertec/check/service/ConsoleCheckService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/clevertec/check/util/Parser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/clevertec/check/util/Parser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/clevertec/check/util/Writer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/clevertec/check/util/Writer.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,6 +29,11 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="feature/entry-core" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectColorInfo">{
@@ -59,7 +49,7 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    "Application.CheckRunner.executor": "Run",
+    "Application.CheckRunner.executor": "Debug",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "kotlin-language-version-configured": "true",
@@ -69,15 +59,16 @@
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Libraries",
+    "project.structure.last.edited": "Project",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.51724136",
-    "settings.editor.selected.configurable": "build.tools",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\528\Desktop\homework\java-check-runner" />
       <recent name="C:\Users\528\Desktop\homework\java-check-runner\libs" />
       <recent name="C:\Users\528\Desktop\homework\java-checkrunner\src\main\resources" />
     </key>
@@ -96,7 +87,7 @@
     <configuration name="CheckRunner" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="main.java.ru.clevertec.check.CheckRunner" />
       <module name="java-check-runner" />
-      <option name="PROGRAM_PARAMETERS" value="3-1 2-5 5-1 discountCard=1111 balanceDebitCard=100" />
+      <option name="PROGRAM_PARAMETERS" value="1-1 discountCard=1111 balanceDebitCard=12.1 saveToFile=./error_result.csv" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="main.java.ru.clevertec.check.*" />
@@ -131,11 +122,24 @@
       <updated>1720255946519</updated>
       <workItem from="1720255947625" duration="2978000" />
       <workItem from="1720258985737" duration="1589000" />
-      <workItem from="1720260604587" duration="7119000" />
+      <workItem from="1720260604587" duration="23577000" />
     </task>
+    <task id="LOCAL-00001" summary="выполнены требования п.1 тз&#10;-структура классов&#10;-основной функционал">
+      <option name="closed" value="true" />
+      <created>1720272208022</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1720272208022</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="выполнены требования п.1 тз&#10;-структура классов&#10;-основной функционал" />
+    <option name="LAST_COMMIT_MESSAGE" value="выполнены требования п.1 тз&#10;-структура классов&#10;-основной функционал" />
   </component>
 </project>

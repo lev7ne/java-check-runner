@@ -6,6 +6,7 @@ import main.java.ru.clevertec.check.model.Product;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.nio.file.Files;
+import java.nio.file.NoSuchFileException;
 import java.nio.file.Path;
 import java.util.List;
 import java.util.Map;
@@ -30,10 +31,10 @@ public class ProductCSV {
                     .map(lineContent -> lineContent.split(";"))
                     .map(columns -> new Product(
                             Integer.parseInt(columns[0]), // id
-                            columns[1],                   // Название
-                            Double.parseDouble(columns[2].replace(",", ".")), // Цена
-                            Integer.parseInt(columns[3]), // Количество на складе
-                            columns[4].equals("+")        // Скидка доступна
+                            columns[1],                   // название
+                            Double.parseDouble(columns[2].replace(",", ".")), // цена
+                            Integer.parseInt(columns[3]), // количество на складе
+                            columns[4].equals("+")        // скидка доступна
                     ))
                     .filter(product -> purchases.containsKey(product.getId()))
                     .peek(product -> {
@@ -52,6 +53,10 @@ public class ProductCSV {
             }
 
             return products;
+
+        } catch (NoSuchFileException e) {
+            System.out.println("По указанному пути файл не найден");
+            throw new BadRequestException("BAD REQUEST");
         }
     }
 }

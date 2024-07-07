@@ -1,18 +1,18 @@
-package main.java.ru.clevertec.check.exception;
+package ru.clevertec.check.exception;
 
 public class BadRequestException extends RuntimeException {
-    private String details;
+    private String path;
 
     public BadRequestException(String message) {
         super(message);
     }
 
-    public BadRequestException(String message, String details) {
+    public BadRequestException(String message, String path) {
         super(message);
-        this.details = details;
+        this.path = path;
     }
 
-    public String getDetails() {
-        return details;
+    public String getPath() {
+        return path;
     }
 }

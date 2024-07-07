@@ -1,11 +1,14 @@
-package main.java.ru.clevertec.check.model;
+package ru.clevertec.check.model;
 
 public class Product {
-    private final int id;
-    private final String description;
-    private final double price;
-    private final int quantityInStock;
-    private final boolean wholesaleProduct;
+    private long id;
+    private String description;
+    private double price;
+    private int quantityInStock;
+    private boolean wholesaleProduct;
+
+    public Product() {
+    }
 
     public Product(int id, String description, double price, int quantityInStock, boolean wholesaleProduct) {
         this.id = id;
@@ -15,7 +18,7 @@ public class Product {
         this.wholesaleProduct = wholesaleProduct;
     }
 
-    public int getId() {
+    public long getId() {
         return id;
     }
 
@@ -35,8 +38,23 @@ public class Product {
         return wholesaleProduct;
     }
 
-    @Override
-    public String toString() {
-        return id + ";" + description + ";" + price + ";" + quantityInStock + ";" + (wholesaleProduct ? "+" : "-");
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public void setPrice(double price) {
+        this.price = price;
+    }
+
+    public void setQuantityInStock(int quantityInStock) {
+        this.quantityInStock = quantityInStock;
+    }
+
+    public void setWholesaleProduct(boolean wholesaleProduct) {
+        this.wholesaleProduct = wholesaleProduct;
     }
 }

@@ -1,5 +1,6 @@
-package main.java.ru.clevertec.check.service;
+package ru.clevertec.check.service;
+
 
 public interface CheckService {
-    void createCheck(String[] args);
+    void createCheck();
 }

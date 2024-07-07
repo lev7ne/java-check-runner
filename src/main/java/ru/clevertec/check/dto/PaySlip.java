@@ -1,4 +1,4 @@
-package main.java.ru.clevertec.check.dto;
+package ru.clevertec.check.dto;
 
 
 public class PaySlip {
@@ -9,6 +9,14 @@ public class PaySlip {
     private double total;
 
     public PaySlip() {
+    }
+
+    public PaySlip(int quantity, String description, double price, double discount, double total) {
+        this.quantity = quantity;
+        this.description = description;
+        this.price = price;
+        this.discount = discount;
+        this.total = total;
     }
 
     public int getQuantity() {

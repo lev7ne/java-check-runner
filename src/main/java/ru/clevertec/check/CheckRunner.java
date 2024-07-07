@@ -1,14 +1,15 @@
-package main.java.ru.clevertec.check;
+package ru.clevertec.check;
 
-import main.java.ru.clevertec.check.service.CheckService;
-import main.java.ru.clevertec.check.service.ServiceFactory;
+
+import ru.clevertec.check.service.CheckService;
+import ru.clevertec.check.service.ServiceFactory;
 
 
 public class CheckRunner {
     public static void main(String[] args) {
 
-        CheckService consoleCheckService = ServiceFactory.getConsoleCheckService();
-        consoleCheckService.createCheck(args);
+        CheckService consoleCheckService = ServiceFactory.getConsoleCheckService(args);
+        consoleCheckService.createCheck();
 
     }
 

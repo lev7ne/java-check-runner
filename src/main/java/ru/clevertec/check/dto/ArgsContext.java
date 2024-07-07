@@ -1,69 +1,46 @@
-package main.java.ru.clevertec.check.dto;
-
+package ru.clevertec.check.dto;
 
 import java.util.Map;
 
 public class ArgsContext {
     private Map<Integer, Integer> purchases;
-    private Integer discountCardNumber;
+    private Integer discountCard;
     private Double balanceDebitCard;
-    private String pathToFile;
     private String saveToFile;
-
-    public ArgsContext() {
-    }
+    private Map<String, String> datasource;
 
     public ArgsContext(
             Map<Integer, Integer> purchases,
-            Integer discountCardNumber,
+            Integer discountCard,
             Double balanceDebitCard,
-            String pathToFile,
-            String saveToFile
+            String saveToFile,
+            Map<String, String> datasource
     ) {
+
         this.purchases = purchases;
-        this.discountCardNumber = discountCardNumber;
+        this.discountCard = discountCard;
         this.balanceDebitCard = balanceDebitCard;
-        this.pathToFile = pathToFile;
         this.saveToFile = saveToFile;
+        this.datasource = datasource;
+    }
+
+    public Map<String, String> getDatasource() {
+        return datasource;
     }
 
     public Map<Integer, Integer> getPurchases() {
         return purchases;
     }
 
-    public void setPurchases(Map<Integer, Integer> purchases) {
-        this.purchases = purchases;
-    }
-
-    public Integer getDiscountCardNumber() {
-        return discountCardNumber;
-    }
-
-    public void setDiscountCardNumber(Integer discountCardNumber) {
-        this.discountCardNumber = discountCardNumber;
+    public Integer getDiscountCard() {
+        return discountCard;
     }
 
     public Double getBalanceDebitCard() {
         return balanceDebitCard;
     }
 
-    public void setBalanceDebitCard(Double balanceDebitCard) {
-        this.balanceDebitCard = balanceDebitCard;
-    }
-
-    public String getPathToFile() {
-        return pathToFile;
-    }
-
-    public void setPathToFile(String pathToFile) {
-        this.pathToFile = pathToFile;
-    }
-
     public String getSaveToFile() {
         return saveToFile;
-    }
-
-    public void setSaveToFile(String saveToFile) {
-        this.saveToFile = saveToFile;
     }
 }

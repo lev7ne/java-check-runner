@@ -4,37 +4,51 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ecbb724f-7c7a-4747-af50-7d03d5d300e9" name="Changes" comment="выполнены требования п.2 тз&#10;-добавлен функционал с чтением из файла&#10;-оптимизирован метод createCheck в сервисе">
-      <change afterPath="$PROJECT_DIR$/src/main/java/ru/clevertec/check/dao/DiscountCardDAO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ru/clevertec/check/dao/ProductDAO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/data.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/ru/clevertec/check/CheckRunnerTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/ru/clevertec/check/dao/DiscountCardDAOTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/ru/clevertec/check/service/ConsoleCheckServiceTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/ru/clevertec/check/service/ServiceFactoryTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/ru/clevertec/check/util/CalculatorTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/ru/clevertec/check/util/ParserTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
+    <list default="true" id="ecbb724f-7c7a-4747-af50-7d03d5d300e9" name="Changes" comment="выполнены требования п.3 тз&#10;-добавлена бд&#10;-добавлены тесты&#10;-небольшие изменения в структуре&#10;-удалены CSV">
+      <change afterPath="$PROJECT_DIR$/src/main/java/ru/clevertec/check/config/DatabaseConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ru/clevertec/check/dto/CheckRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ru/clevertec/check/dto/ProductQuantity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ru/clevertec/check/exception/InternalServerException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ru/clevertec/check/exception/NotFoundException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ru/clevertec/check/service/check/CheckService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ru/clevertec/check/service/discountCard/DiscountCardService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ru/clevertec/check/service/discountCard/DiscountCardServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ru/clevertec/check/service/product/ProductService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ru/clevertec/check/service/product/ProductServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ru/clevertec/check/servlet/CheckServlet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ru/clevertec/check/servlet/DiscountCardServlet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ru/clevertec/check/servlet/ProductServlet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/ru/clevertec/check/service/check/CheckServiceImplTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/ru/clevertec/check/servlet/CheckServletTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/ru/clevertec/check/servlet/DiscountCardServletTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/ru/clevertec/check/servlet/ProductServletTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/ru/clevertec/check/util/WriterTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/java-check-runner.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle.kts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ru/clevertec/check/CheckRunner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/clevertec/check/CheckRunner.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/clevertec/check/csv/DiscountCardCSV.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/clevertec/check/csv/ProductCSV.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/clevertec/check/dto/ArgsContext.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/clevertec/check/dto/ArgsContext.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/clevertec/check/dto/PaySlip.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/clevertec/check/dto/PaySlip.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/clevertec/check/dao/DiscountCardDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/clevertec/check/dao/DiscountCardDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/clevertec/check/dao/ProductDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/clevertec/check/dao/ProductDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/clevertec/check/dto/ArgsContext.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ru/clevertec/check/exception/BadRequestException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/clevertec/check/exception/BadRequestException.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ru/clevertec/check/exception/NotEnoughMoneyException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/clevertec/check/exception/NotEnoughMoneyException.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ru/clevertec/check/model/DiscountCard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/clevertec/check/model/DiscountCard.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ru/clevertec/check/model/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/clevertec/check/model/Product.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/clevertec/check/service/CheckService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/clevertec/check/service/CheckService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/clevertec/check/service/ConsoleCheckService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/clevertec/check/service/ConsoleCheckService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/clevertec/check/service/ServiceFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/clevertec/check/service/ServiceFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/clevertec/check/service/CheckService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/clevertec/check/service/ConsoleCheckService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/clevertec/check/service/check/CheckServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/clevertec/check/service/ServiceFactory.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ru/clevertec/check/util/Calculator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/clevertec/check/util/Calculator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/clevertec/check/util/Parser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/clevertec/check/util/Parser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/clevertec/check/util/Parser.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ru/clevertec/check/util/Writer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/clevertec/check/util/Writer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/data.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/data.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/ru/clevertec/check/CheckRunnerTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/ru/clevertec/check/dao/DiscountCardDAOTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/ru/clevertec/check/dao/DiscountCardDAOTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/ru/clevertec/check/dao/ProductDAOTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/ru/clevertec/check/dao/ProductDAOTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/ru/clevertec/check/service/ConsoleCheckServiceTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/ru/clevertec/check/service/ServiceFactoryTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/ru/clevertec/check/util/CalculatorTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/ru/clevertec/check/util/CalculatorTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/ru/clevertec/check/util/ParserTest.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -54,12 +68,7 @@
         </task>
         <projects_view>
           <tree_state>
-            <expand>
-              <path>
-                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="java-check-runner" type="f1a62948:ProjectNode" />
-              </path>
-            </expand>
+            <expand />
             <select />
           </tree_state>
         </projects_view>
@@ -69,15 +78,16 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
+        <option value="Interface" />
         <option value="JUnit5 Test Class" />
+        <option value="Class" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="feature/entry-file" />
+        <entry key="$PROJECT_DIR$" value="feature/entry-database" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -86,6 +96,16 @@
   <component name="KubernetesApiProvider">{
   &quot;isMigrated&quot;: true
 }</component>
+  <component name="LogFilters">
+    <option name="FILTER_ERRORS" value="false" />
+    <option name="FILTER_WARNINGS" value="false" />
+    <option name="FILTER_INFO" value="true" />
+    <option name="FILTER_DEBUG" value="true" />
+    <option name="CUSTOM_FILTER" />
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 2
 }</component>
@@ -100,18 +120,49 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "Application.CheckRunner.executor": "Run",
+    "Gradle.Build java-check-runner.executor": "Run",
     "Gradle.CalculatorTest.executor": "Run",
     "Gradle.CalculatorTest.testCombineSameProducts.executor": "Run",
+    "Gradle.CalculatorTest.testPurchaseCalculate_BadRequest.executor": "Run",
+    "Gradle.CalculatorTest.testPurchaseCalculate_NoDiscountCard.executor": "Run",
     "Gradle.CalculatorTest.testQuantityExceedsStock.executor": "Run",
     "Gradle.CalculatorTest.testSuccessfulPurchase.executor": "Run",
+    "Gradle.CheckServiceImplTest.executor": "Run",
+    "Gradle.CheckServiceImplTest.testCreateCheck.executor": "Run",
+    "Gradle.CheckServiceImplTest.testCreateCheckWithNoPurchases.executor": "Run",
+    "Gradle.CheckServiceImplTest.testCreateCheckWithValidData.executor": "Run",
+    "Gradle.CheckServiceImplTest.testCreateCheckWithoutDiscountCard.executor": "Run",
+    "Gradle.CheckServiceImplTest.testDoPostSuccess.executor": "Run",
+    "Gradle.CheckServletTest.executor": "Run",
+    "Gradle.CheckServletTest.testDoPost.executor": "Run",
+    "Gradle.CheckServletTest.testDoPost_Success.executor": "Run",
     "Gradle.ConsoleCheckServiceTest.executor": "Run",
     "Gradle.ConsoleCheckServiceTest.testCreateCheck.executor": "Run",
     "Gradle.ConsoleCheckServiceTest.testCreateCheckSuccessful.executor": "Run",
     "Gradle.DiscountCardDAOTest.executor": "Run",
+    "Gradle.DiscountCardDAOTest.testAddDiscountCard.executor": "Run",
+    "Gradle.DiscountCardDAOTest.testDeleteDiscountCard.executor": "Run",
+    "Gradle.DiscountCardDAOTest.testDeleteDiscountCardNotFound.executor": "Run",
+    "Gradle.DiscountCardDAOTest.testFindByIdCardFound.executor": "Run",
+    "Gradle.DiscountCardDAOTest.testFindByIdCardNotFound.executor": "Run",
     "Gradle.DiscountCardDAOTest.testFindByNumberBadRequestException.executor": "Run",
     "Gradle.DiscountCardDAOTest.testFindByNumberCardFound.executor": "Run",
     "Gradle.DiscountCardDAOTest.testFindByNumberCardNotFound.executor": "Run",
-    "Gradle.DiscountCardDAOTest.testFindByNumber_ExistingCard.executor": "Debug",
+    "Gradle.DiscountCardDAOTest.testFindByNumber_ExistingCard.executor": "Run",
+    "Gradle.DiscountCardDAOTest.testUpdateDiscountCard.executor": "Run",
+    "Gradle.DiscountCardServletTest.executor": "Run",
+    "Gradle.DiscountCardServletTest.testDoDeleteInternalServerError.executor": "Run",
+    "Gradle.DiscountCardServletTest.testDoDeleteNotFound.executor": "Debug",
+    "Gradle.DiscountCardServletTest.testDoDeleteWithValidId.executor": "Run",
+    "Gradle.DiscountCardServletTest.testDoGetInternalServerError.executor": "Run",
+    "Gradle.DiscountCardServletTest.testDoGetNotFound.executor": "Run",
+    "Gradle.DiscountCardServletTest.testDoGetWithDiscountCardId.executor": "Run",
+    "Gradle.DiscountCardServletTest.testDoGetWithValidId.executor": "Run",
+    "Gradle.DiscountCardServletTest.testDoPost.executor": "Run",
+    "Gradle.DiscountCardServletTest.testDoPostInternalServerError.executor": "Run",
+    "Gradle.DiscountCardServletTest.testDoPutInternalServerError.executor": "Run",
+    "Gradle.DiscountCardServletTest.testDoPutNotFound.executor": "Run",
+    "Gradle.DiscountCardServletTest.testDoPutWithValidId.executor": "Run",
     "Gradle.Download Sources.executor": "Run",
     "Gradle.ParserTest.executor": "Run",
     "Gradle.ParserTest.testParseArgsInvalidDiscountCard.executor": "Run",
@@ -119,16 +170,40 @@
     "Gradle.ParserTest.testParseArgsNoIdQuantity.executor": "Run",
     "Gradle.ParserTest.testParseArgsSuccessful.executor": "Run",
     "Gradle.ParserTest.testParseArgsUnknownParameter.executor": "Run",
+    "Gradle.ProductDAOTest.executor": "Run",
+    "Gradle.ProductDAOTest.testAddProduct.executor": "Run",
+    "Gradle.ProductDAOTest.testDeleteProduct.executor": "Run",
+    "Gradle.ProductDAOTest.testFindByDescription_ProductFound.executor": "Run",
+    "Gradle.ProductDAOTest.testFindByDescription_ProductNotFound.executor": "Run",
+    "Gradle.ProductDAOTest.testFindByIdsEmptyList.executor": "Run",
+    "Gradle.ProductDAOTest.testFindByIdsNoProductsFound.executor": "Run",
+    "Gradle.ProductDAOTest.testFindByIdsProductsFound.executor": "Run",
+    "Gradle.ProductDAOTest.testFindByIdsReturnEmptyList.executor": "Run",
+    "Gradle.ProductDAOTest.testUpdateProduct.executor": "Run",
+    "Gradle.ProductDAOTest.testUpdateProductInternalServerException.executor": "Run",
+    "Gradle.ProductDAOTest.testUpdateProductNotFound.executor": "Run",
+    "Gradle.ProductDAOTest.testUpdateProductSQLException.executor": "Run",
+    "Gradle.ProductServletTest.executor": "Run",
+    "Gradle.ProductServletTest.testDoGetWithValidId.executor": "Run",
+    "Gradle.ProductServletTest.testDoPostWithValidData.executor": "Run",
+    "Gradle.ProductServletTest.testDoPutWithNotFound.executor": "Run",
+    "Gradle.ProductServletTest.testDoPutWithValidData.executor": "Run",
+    "Gradle.ServiceFactoryTest.executor": "Run",
+    "Gradle.ServiceFactoryTest.testGetCheckService.executor": "Run",
     "Gradle.ServiceFactoryTest.testGetConsoleCheckService.executor": "Run",
+    "Gradle.WriterTest.executor": "Run",
+    "Gradle.WriterTest.testWriteToFile_NullPaySlips.executor": "Run",
+    "Gradle.WriterTest.testWriteToFile_PositiveScenario.executor": "Run",
     "Gradle.java-check-runner [:CheckRunner.main()].executor": "Run",
     "Gradle.java-check-runner [clean].executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "Tomcat Server.clevertec-check-local-test.executor": "Run",
     "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
     "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
     "create.test.in.the.same.root": "true",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/528/Desktop/homework/java-shareit",
+    "last_opened_file_path": "C:/Users/528/Desktop/homework/java-check-runner/build/libs/java-check-runner.war",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -137,6 +212,7 @@
     "project.structure.last.edited": "Libraries",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.51724136",
+    "run.code.analysis.last.selected.profile": "pProject Default",
     "settings.editor.selected.configurable": "database.query.execution",
     "vue.rearranger.settings.migration": "true"
   },
@@ -161,11 +237,11 @@
       <recent name="" />
     </key>
     <key name="CreateTestDialog.RecentsKey">
+      <recent name="ru.clevertec.check.servlet" />
+      <recent name="ru.clevertec.check.service.check" />
       <recent name="ru.clevertec.check.service" />
       <recent name="ru.clevertec.check.util" />
       <recent name="ru.clevertec.check.dao" />
-      <recent name="ru.clevertec.check" />
-      <recent name="main.java.ru.clevertec.check" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="main.java.ru.clevertec.check.util" />
@@ -180,155 +256,228 @@
       <command value="gradle clean" />
     </option>
   </component>
-  <component name="RunManager" selected="Gradle.DiscountCardDAOTest.testFindByNumber_ExistingCard">
-    <configuration name="CheckRunner" type="Application" factoryName="Application" temporary="true">
-      <option name="MAIN_CLASS_NAME" value="ru.clevertec.check.CheckRunner" />
-      <module name="java-check-runner.main" />
-      <option name="PROGRAM_PARAMETERS" value="3-1 2-5 5-1 discountCard=1111 balanceDebitCard=100 saveToFile=./result.csv datasource.url=jdbc:postgresql://localhost:5432/check datasource.username=postgres datasource.password=postgres" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="ru.clevertec.check.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
+  <component name="RunManager" selected="Tomcat Server.clevertec-check-local-test">
+    <configuration name="CheckServiceImplTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;ru.clevertec.check.service.check.CheckServiceImplTest&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>true</RunAsTest>
+      <method v="2" />
+    </configuration>
+    <configuration name="CheckServiceImplTest.testCreateCheckWithoutDiscountCard" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;ru.clevertec.check.service.check.CheckServiceImplTest.testCreateCheckWithoutDiscountCard&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>true</RunAsTest>
+      <method v="2" />
+    </configuration>
+    <configuration name="DiscountCardDAOTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;ru.clevertec.check.dao.DiscountCardDAOTest&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>true</RunAsTest>
+      <method v="2" />
+    </configuration>
+    <configuration name="ProductServletTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;ru.clevertec.check.servlet.ProductServletTest&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>true</RunAsTest>
+      <method v="2" />
+    </configuration>
+    <configuration name="ProductServletTest.testDoPutWithValidData" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;ru.clevertec.check.servlet.ProductServletTest.testDoPutWithValidData&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>true</RunAsTest>
+      <method v="2" />
+    </configuration>
+    <configuration name="clevertec-check-local-test" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 10.1.25" ALTERNATIVE_JRE_ENABLED="false">
+      <option name="OPEN_IN_BROWSER_URL" value="http://localhost:8080" />
+      <option name="UPDATING_POLICY" value="restart-server" />
+      <deployment>
+        <file path="$PROJECT_DIR$/build/libs/java-check-runner.war">
+          <settings>
+            <option name="CONTEXT_PATH" value="/" />
+          </settings>
+        </file>
+      </deployment>
+      <server-settings>
+        <option name="BASE_DIRECTORY_NAME" value="b87c6f19-3ada-4029-8fae-b081d8c58a53" />
+      </server-settings>
+      <predefined_log_file enabled="true" id="Tomcat" />
+      <predefined_log_file enabled="true" id="Tomcat Catalina" />
+      <predefined_log_file id="Tomcat Manager" />
+      <predefined_log_file id="Tomcat Host Manager" />
+      <predefined_log_file id="Tomcat Localhost Access" />
+      <RunnerSettings RunnerId="Debug">
+        <option name="DEBUG_PORT" value="54025" />
+      </RunnerSettings>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Cover">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Debug">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Profile">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Run">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
       <method v="2">
         <option name="Make" enabled="true" />
+        <option name="BuildArtifacts" enabled="false" />
       </method>
     </configuration>
-    <configuration name="CalculatorTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value=":test" />
-            <option value="--tests" />
-            <option value="&quot;ru.clevertec.check.util.CalculatorTest&quot;" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <RunAsTest>true</RunAsTest>
-      <method v="2" />
-    </configuration>
-    <configuration name="ConsoleCheckServiceTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value=":test" />
-            <option value="--tests" />
-            <option value="&quot;ru.clevertec.check.service.ConsoleCheckServiceTest&quot;" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <RunAsTest>true</RunAsTest>
-      <method v="2" />
-    </configuration>
-    <configuration name="DiscountCardDAOTest.testFindByNumberCardFound" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value=":test" />
-            <option value="--tests" />
-            <option value="&quot;ru.clevertec.check.dao.DiscountCardDAOTest.testFindByNumberCardFound&quot;" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <RunAsTest>true</RunAsTest>
-      <method v="2" />
-    </configuration>
-    <configuration name="DiscountCardDAOTest.testFindByNumber_ExistingCard" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value=":test" />
-            <option value="--tests" />
-            <option value="&quot;ru.clevertec.check.dao.DiscountCardDAOTest.testFindByNumber_ExistingCard&quot;" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <RunAsTest>true</RunAsTest>
-      <method v="2" />
-    </configuration>
-    <configuration name="ParserTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value=":test" />
-            <option value="--tests" />
-            <option value="&quot;ru.clevertec.check.util.ParserTest&quot;" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <RunAsTest>true</RunAsTest>
-      <method v="2" />
-    </configuration>
     <list>
-      <item itemvalue="Gradle.CalculatorTest" />
-      <item itemvalue="Gradle.ConsoleCheckServiceTest" />
-      <item itemvalue="Gradle.DiscountCardDAOTest.testFindByNumberCardFound" />
-      <item itemvalue="Gradle.DiscountCardDAOTest.testFindByNumber_ExistingCard" />
-      <item itemvalue="Gradle.ParserTest" />
+      <item itemvalue="Gradle.CheckServiceImplTest" />
+      <item itemvalue="Gradle.CheckServiceImplTest.testCreateCheckWithoutDiscountCard" />
+      <item itemvalue="Gradle.DiscountCardDAOTest" />
+      <item itemvalue="Gradle.ProductServletTest" />
+      <item itemvalue="Gradle.ProductServletTest.testDoPutWithValidData" />
+      <item itemvalue="Tomcat Server.clevertec-check-local-test" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Gradle.DiscountCardDAOTest.testFindByNumber_ExistingCard" />
-        <item itemvalue="Gradle.ParserTest" />
-        <item itemvalue="Gradle.CalculatorTest" />
-        <item itemvalue="Gradle.ConsoleCheckServiceTest" />
-        <item itemvalue="Gradle.DiscountCardDAOTest.testFindByNumberCardFound" />
+        <item itemvalue="Gradle.DiscountCardDAOTest" />
+        <item itemvalue="Gradle.CheckServiceImplTest.testCreateCheckWithoutDiscountCard" />
+        <item itemvalue="Gradle.CheckServiceImplTest" />
+        <item itemvalue="Gradle.ProductServletTest" />
+        <item itemvalue="Gradle.ProductServletTest.testDoPutWithValidData" />
       </list>
     </recent_temporary>
   </component>
@@ -352,6 +501,12 @@
       <workItem from="1720258985737" duration="1589000" />
       <workItem from="1720260604587" duration="34806000" />
       <workItem from="1720337146696" duration="6445000" />
+      <workItem from="1720457167691" duration="7220000" />
+      <workItem from="1720464468329" duration="1989000" />
+      <workItem from="1720466488132" duration="9394000" />
+      <workItem from="1720544044310" duration="7336000" />
+      <workItem from="1720551488614" duration="5773000" />
+      <workItem from="1720589379691" duration="42876000" />
     </task>
     <task id="LOCAL-00001" summary="выполнены требования п.1 тз&#10;-структура классов&#10;-основной функционал">
       <option name="closed" value="true" />
@@ -369,7 +524,15 @@
       <option name="project" value="LOCAL" />
       <updated>1720289445379</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="выполнены требования п.3 тз&#10;-добавлена бд&#10;-добавлены тесты&#10;-небольшие изменения в структуре&#10;-удалены CSV">
+      <option name="closed" value="true" />
+      <created>1720382831719</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1720382831720</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -378,6 +541,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="выполнены требования п.1 тз&#10;-структура классов&#10;-основной функционал" />
     <MESSAGE value="выполнены требования п.2 тз&#10;-добавлен функционал с чтением из файла&#10;-оптимизирован метод createCheck в сервисе" />
-    <option name="LAST_COMMIT_MESSAGE" value="выполнены требования п.2 тз&#10;-добавлен функционал с чтением из файла&#10;-оптимизирован метод createCheck в сервисе" />
+    <MESSAGE value="выполнены требования п.3 тз&#10;-добавлена бд&#10;-добавлены тесты&#10;-небольшие изменения в структуре&#10;-удалены CSV" />
+    <option name="LAST_COMMIT_MESSAGE" value="выполнены требования п.3 тз&#10;-добавлена бд&#10;-добавлены тесты&#10;-небольшие изменения в структуре&#10;-удалены CSV" />
   </component>
 </project>

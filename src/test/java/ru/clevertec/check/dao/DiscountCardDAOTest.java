@@ -5,30 +5,32 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.MockitoAnnotations;
+import ru.clevertec.check.exception.InternalServerException;
+import ru.clevertec.check.exception.NotFoundException;
 import ru.clevertec.check.model.DiscountCard;
 
 import java.io.File;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Objects;
-import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 
 public class DiscountCardDAOTest {
-
-    private DiscountCardDAO discountCardDAO;
-
-    private static final String TEST_URL = "jdbc:h2:~/test";
+    private static final String TEST_URL = "jdbc:h2:~/test;MODE=PostgreSQL";
     private static final String TEST_USERNAME = "sa";
     private static final String TEST_PASSWORD = "";
+    private static DiscountCardDAO discountCardDAO;
 
     @BeforeAll
-    public static void setUpDatabase() {
-        try (Connection conn = DriverManager.getConnection(TEST_URL, TEST_USERNAME, TEST_PASSWORD);
-             Statement stmt = conn.createStatement()) {
+    public static void setUpDatabase() throws SQLException {
+        Connection conn = DriverManager.getConnection(TEST_URL, TEST_USERNAME, TEST_PASSWORD);
+        discountCardDAO = new DiscountCardDAO(conn);
+
+        try (Statement stmt = conn.createStatement()) {
 
             ClassLoader classLoader = DiscountCardDAOTest.class.getClassLoader();
             File file = new File(Objects.requireNonNull(classLoader.getResource("data.sql")).getFile());
@@ -56,27 +58,72 @@ public class DiscountCardDAOTest {
     @BeforeEach
     void setUp() {
         MockitoAnnotations.openMocks(this);
-        discountCardDAO = new DiscountCardDAO(TEST_URL, TEST_USERNAME, TEST_PASSWORD);
     }
 
     @Test
-    void testFindByNumberCardFound() {
+    void testFindByNumberCardFound() throws InternalServerException, NotFoundException {
         int number = 1111;
 
-        Optional<DiscountCard> result = discountCardDAO.findByNumber(number);
+        DiscountCard result = discountCardDAO.findByNumber(number);
 
-        assertTrue(result.isPresent());
-        assertEquals(number, result.get().getNumberDiscount());
-        assertEquals(3, result.get().getAmount());
+        assertNotNull(result);
+        assertEquals(number, result.getDiscountCard());
+        assertEquals(3, result.getDiscountAmount());
     }
 
     @Test
     void testFindByNumberCardNotFound() {
         int number = 54321;
 
-        Optional<DiscountCard> result = discountCardDAO.findByNumber(number);
+        assertThrows(NotFoundException.class, () -> discountCardDAO.findByNumber(number));
+    }
 
-        assertFalse(result.isPresent());
+    @Test
+    void testFindByIdCardFound() throws InternalServerException, NotFoundException {
+        int id = 1;
+
+        DiscountCard result = discountCardDAO.findById(id);
+
+        assertNotNull(result);
+        assertEquals(id, result.getId());
+        assertEquals(1111, result.getDiscountCard());
+        assertEquals(3, result.getDiscountAmount());
+    }
+
+    @Test
+    void testFindByIdCardNotFound() {
+        int id = 54321;
+
+        assertThrows(NotFoundException.class, () -> discountCardDAO.findById(id));
+    }
+
+    @Test
+    void testUpdateDiscountCard() throws InternalServerException, NotFoundException {
+        int id = 2;
+        DiscountCard updatedCard = new DiscountCard(id, 2222, 10);
+
+        discountCardDAO.updateDiscountCard(id, updatedCard);
+
+        DiscountCard result = discountCardDAO.findById(id);
+        assertNotNull(result);
+        assertEquals(2222, result.getDiscountCard());
+        assertEquals(10, result.getDiscountAmount());
+    }
+
+    @Test
+    void testDeleteDiscountCard() throws InternalServerException, NotFoundException {
+        int id = 2;
+
+        discountCardDAO.deleteDiscountCard(id);
+
+        assertThrows(NotFoundException.class, () -> discountCardDAO.findById(id));
+    }
+
+    @Test
+    void testDeleteDiscountCardNotFound() {
+        int id = 54321;
+
+        assertThrows(NotFoundException.class, () -> discountCardDAO.deleteDiscountCard(id));
     }
 
 }

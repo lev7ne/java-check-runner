@@ -1,6 +1,6 @@
 plugins {
-    java
     application
+    war
 }
 
 java {
@@ -22,6 +22,8 @@ tasks.withType<JavaCompile> {
 }
 
 dependencies {
+    implementation("com.fasterxml.jackson.core:jackson-databind:2.17.2")
+    implementation("jakarta.servlet:jakarta.servlet-api:6.1.0")
     implementation("org.postgresql:postgresql:42.7.2")
     testImplementation("org.junit.jupiter:junit-jupiter-api:5.10.3")
     testImplementation("org.junit.jupiter:junit-jupiter-engine:5.10.3")
@@ -35,16 +37,20 @@ tasks.named<Test>("test") {
     useJUnitPlatform()
 }
 
-tasks.jar {
-    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
-    manifest {
-        attributes["Main-Class"] = application.mainClass.get()
-    }
-    from(sourceSets.main.get().output)
+tasks {
+    register<War>("warTask") {
+        duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+        archiveFileName.set("clevertec-check.war")
 
-    dependsOn(configurations.runtimeClasspath)
-    from({
-        configurations.runtimeClasspath.get().filter { it.name.endsWith("jar") }.map { zipTree(it) }
-    })
-    archiveFileName.set("clevertec-check.jar")
+        manifest {
+            attributes["Main-Class"] = "ru.clevertec.check.CheckRunner"
+        }
+
+        from(sourceSets.main.get().output)
+
+        dependsOn(configurations.runtimeClasspath)
+        from({
+            configurations.runtimeClasspath.get().filter { it.name.endsWith("jar") }.map { zipTree(it) }
+        })
+    }
 }

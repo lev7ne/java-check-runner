@@ -1,44 +1,95 @@
 # CheckRunner
 
 ---
->Консольное приложение, реализующее функционал формирования чека в магазине, принимает параметры в виде аргументов запуска и пишет результат в .csv
+> Веб-приложение, реализующее функционал формирования чека в магазине, принимает параметры в Json-объекта, возвращает
+> .csv
 
-
-#### Перед запуском, необходимо подготовить .jar-архив:
-
-```bash
-./gradlew clean build
-```
-_*запуск осуществляется из директории ./build/libs:_
-
-
-#### Пример консольной команды для запуска:
-
+#### Перед запуском, необходимо подготовить .war-архив:
 
 ```bash
-java -jar clevertec-check.jar 3-1 2-5 5-1 discountCard=1111 balanceDebitCard=100 saveToFile=./result.csv datasource.url=jdbc:postgresql://localhost:5432/check datasource.username=postgres datasource.password=postgres
+./gradlew build
 ```
 
+#### Примеры запросов:
 
-#### Обязательные аргументы:
+Получить чек: POST http://localhost:8080/check
 
-`id-quantity` — идентификатор товара и его количество, может быть несколько таких пар, разделенных пробелом, например, `1-3` (id=1, quantity=3)
+```json
+{
+  "products": [
+    {
+      "id": 1,
+      "quantity": 5
+    },
+    {
+      "id": 1,
+      "quantity": 5
+    }
+  ],
+  "discountCard": 1234,
+  "balanceDebitCard": 100
+}
+```
 
-`balanceDebitCard` — баланс на дебетовой карте, например, `balanceDebitCard=1000`
+Вернуть товар из БД: GET http://localhost:8080/products?id=1
 
-`datasource.url` — url для подключения к базе данных, например, `jdbc:postgresql://localhost:5432/check`
+```
+```
 
-`datasource.username` — username для подключения к базе данных, например, `username`
+Добавить товар в БД: POST http://localhost:8080/products
 
-`datasource.password` — password для подключения к базе данных, например, `password`
+```json
+{
+  "description": "Eat 100g.",
+  "price": 3.25,
+  "quantity": 5,
+  "isWholesale": true
+}
+```
 
-#### Необязательные параметры:
+Обновить товар в БД: PUT http://localhost:8080/products?id=1
 
-`saveToFile=` — путь, указывающий, куда необходимо сохранить результат, например, `./error_result.csv`
+```json
+{
+  "description": "Chocolate Ritter sport 100g.",
+  "price": 3.25,
+  "quantity": 5,
+  "isWholesale ": true
+}
+```
 
-`discountCard=xxxx` — номер дисконтной карты, например, `discountCard=1111`
+Удалить товар из БД: DELETE http://localhost:8080/products?id=1
+
+```
+```
+
+Вернуть дисконтную карту из БД: GET http://localhost:8080/discountcards?id=1
+
+```
+```
+
+Добавить дисконтную карту в БД: POST http://localhost:8080/discountcards
+
+```json
+{
+  "discountCard": 5265,
+  "discountAmount": 2
+}
+```
+
+Обновить дисконтную карту в БД: PUT http://localhost:8080/discountcards?id=1
+
+```json
+{
+  "discountCard": 6786,
+  "discountAmount": 3
+}
+```
+
+Удалить дисконтную карту из БД: DELETE http://localhost:8080/discountcards?id=1
+
+```
+```
 
 ---
 _**для тестирования DAO используется H2 (!)_
-
-_***намеренно не подключаю другие библиотеки, в ТЗ только Java 21 и Gradle 8.5_

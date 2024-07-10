@@ -1,30 +1,57 @@
 package ru.clevertec.check.model;
 
+import java.util.Objects;
+
 public class DiscountCard {
     private long id;
-    private int numberDiscount;
-    private int amount;
+    private int discountCard;
+    private int discountAmount;
 
-    public DiscountCard(int id) {
+    public DiscountCard() {
+    }
+
+    public DiscountCard(int discountCard, int discountAmount) {
+        this.discountCard = discountCard;
+        this.discountAmount = discountAmount;
+    }
+
+    public DiscountCard(long id, int discountCard, int discountAmount) {
         this.id = id;
+        this.discountCard = discountCard;
+        this.discountAmount = discountAmount;
     }
 
-    public int getNumberDiscount() {
-        return numberDiscount;
+    public int getDiscountCard() {
+        return discountCard;
     }
 
-    public int getAmount() {
-        return amount;
+    public void setDiscountCard(int discountCard) {
+        this.discountCard = discountCard;
     }
 
-    public DiscountCard(long id, int numberDiscount, int amount) {
+    public int getDiscountAmount() {
+        return discountAmount;
+    }
+
+    public void setDiscountAmount(int discountAmount) {
+        this.discountAmount = discountAmount;
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
         this.id = id;
-        this.numberDiscount = numberDiscount;
-        this.amount = amount;
     }
 
     @Override
-    public String toString() {
-        return numberDiscount + ";" + amount + "%";
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        DiscountCard card = (DiscountCard) o;
+        return Objects.equals(id, card.id) &&
+                discountCard == card.discountCard &&
+                discountAmount == card.discountAmount;
     }
 }
